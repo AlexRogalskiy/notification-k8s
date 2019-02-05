@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-mailer-deployment
+  labels:
+    app: notification-mailer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-mailer
+  template:
+    metadata:
+      labels:
+        app: notification-mailer
+    spec:
+      containers:
+        - name: notification-mailer
+          image: mathiskretz/notification-mailer
+          envFrom:
+            - configMapRef:
+                name: notification-mailer-configmap
