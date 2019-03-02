@@ -6,6 +6,6 @@ metadata:
   name: notification-mq
 spec:
   ports:
-  - port: 5672
+    - port: 5672
   selector:
-    component: rabbitmq
+    app: notification-mq
